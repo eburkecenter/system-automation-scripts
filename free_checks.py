@@ -8,6 +8,7 @@ def check_reboot():
 	return os.path.exists("/run/reboot-required")
 
 
+
 def check_root_full():
 	"""Returns True if the root partition is full, False otherwise"""
 	return check_disk_full(disk="/", min_gb=2, min_percent=10)
@@ -22,7 +23,6 @@ def check_disk_full(disk, min_gb, min_percent):
 	if gigabytes_free < min_gb or percentage_free < min_percent:
 		return True
 	return False
-
 
 def main():
 	checks = [
@@ -39,8 +39,6 @@ def main():
 
 	print("Everything is okay")
 	sys.exit(0)
-
-
 
 if __name__=="__main__":
 	main()
