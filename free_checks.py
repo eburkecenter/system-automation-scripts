@@ -23,12 +23,15 @@ def check_disk_full(disk, min_gb, min_percent):
 	return False
 
 def main():
-	if check_reboot():
-		print("Pending Reboot")
-		sys.exit(1)
-	if check_root_full():
-		print("Full Disk")
-		sys.exit(1)
+	checks = [
+		(check_reboot, "Pending Reboot"),
+		(check_root_full, "Root partition full")
+	]
+	for check, message in checks: 
+		if check():
+			print(message)
+			sys.exit(1)
+			
 	print("Everything is okay")
 	sys.exit(0)
 
