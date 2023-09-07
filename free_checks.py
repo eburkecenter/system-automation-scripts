@@ -11,8 +11,6 @@ import socket
 def check_reboot():
 	"""Returns True if the computer has a pending reboot"""
 	return os.path.exists("/run/reboot-required")
-<<<<<<< HEAD
-=======
 
 def check_root_full():
 	"""Returns True if the root partition is full, False otherwise"""
@@ -43,8 +41,6 @@ def check_no_network():
 	except:
 		return True
 
->>>>>>> refactor
-
 def main():
 	checks = [
 		(check_reboot, "Pending Reboot"),
@@ -71,12 +67,7 @@ def main():
 			
 	print("Everything is okay")
 	sys.exit(0)
-<<<<<<< HEAD
-if __name__=="__main__:
-	main()
-=======
 
 if __name__=="__main__":
 	main()
 
->>>>>>> refactor
