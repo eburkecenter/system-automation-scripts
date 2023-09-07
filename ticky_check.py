@@ -23,8 +23,8 @@ def errors_log(file):
 
 def info_log(file):
 	"""
-   	Function takes text or list as inputs and find all the errors.
-   	The errors are grouped in a dictionary 
+   	Function takes a file as input and categorize all users ticket interaction.
+   	The two categories are info and errors
    	It returns a sorted dictionary of errors
 	"""
 	info_dict = {}
@@ -40,7 +40,7 @@ def info_log(file):
 			elif message_type == "ERROR":
 				info_dict[user][1] +=1
 	return info_dict
-file_path = "/home/jackdoe/GoogleTraining/project.log"
+file_path = "/home/jackdoe/GoogleTraining/gitinit/project.log"
 #print(file_path)
 with open(file_path, "r") as file:
 	errors_sorted = sorted(errors_log(file).items(), key=operator.itemgetter(1), reverse=True)
