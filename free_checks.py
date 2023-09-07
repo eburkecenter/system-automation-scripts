@@ -41,7 +41,6 @@ def check_no_network():
 	except:
 		return True
 
-
 def main():
 	checks = [
 		(check_reboot, "Pending Reboot"),
